@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kouluttaa</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link type="image/x-icon" rel="shortcut icon" href="./icons/logo.svg">
+</head>
+<body class="default">
+  <header class="sticky-header">
+    <div class="accessibility-panel hiden-panel">
+      <div class="font-size-controls">
+        <span class="font-size-label">Размер шрифта:</span>
+        <button id="decrease-font">-</button>
+        <button id="increase-font">+</button>
+      </div>
+    
+      <div class="contrast-controls">
+        <span class="contrast-label">Цветовая схема:</span>
+        <button data-contrast="default" class="contrast-button default">
+          <div class="inside_contrast-button default-inside"></div>
+        </button>
+        <button data-contrast="black-white" class="contrast-button black-white">
+          <div class="inside_contrast-button black-white-inside"></div>
+        </button>
+        <button data-contrast="blue-light" class="contrast-button blue-light">
+          <div class="inside_contrast-button blue-light-inside"></div>
+        </button>
+        <button data-contrast="yellow-black" class="contrast-button yellow-black">
+          <div class="inside_contrast-button yellow-black-inside"></div>
+        </button>
+        <button data-contrast="brown-green" class="contrast-button brown-green">
+          <div class="inside_contrast-button brown-green-inside"></div>
+        </button>
+      </div>
+    
+      <div class="other-controls">
+        <button id="grayscale">
+          <i class="fa fa-adjust" aria-hidden="true"></i> Серый фильтр
+        </button>
+      </div>
+    
+      <button id="reset-styles">
+        <i class="fa fa-times" aria-hidden="true"></i> Сброс
+      </button>
+    </div>
+
+    <div class="header">
+      <div aria-label="Koulutta logo" class="logo">
+          KOULUTTAA
+      </div>
+      <nav class="menu">
+      <a class="menu-href menu-button" href="#services">УСЛУГИ</a>
+      <a class="menu-href menu-button" href="#about">О КОМПАНИИ</a>
+      <a class="menu-href menu-button" href="#contacts">КОНТАКТЫ</a>
+      </nav>
+      <div>
+        <button aria-label="Accessibility icon" class="accessibility-button">
+          <img src="./icons/dark-green/accessibility-panel.svg" class="accessibility-icon" alt="Специальные возможности">
+        </button>
+        <button onclick="window['menu-dialog'].showModal()" class="header__menu-button header__menu-button_cmd_open"></button>
+        <dialog id="menu-dialog" class="header__menu">
+          <nav class="menu-list">
+            <a class="menu-href menu-button" href="#services">УСЛУГИ</a>
+            <a class="menu-href menu-button" href="#about">О КОМПАНИИ</a>
+            <a class="menu-href menu-button" href="#contacts">КОНТАКТЫ</a>
+          </nav>
+          <button onclick="window['menu-dialog'].close()" class="header__menu-button header__menu-button_cmd_close">
+          </button>
+        </dialog>
+      </div>
+    </div>
+  </header>
+  <main class="main" id="content">
+    <section class="hero main-hero">
+      <h1 class="hero-text hero-regular">
+        <span class="hero-bold">НАДЁЖНОСТЬ</span> НА КАЖДОМ КИЛОМЕТРЕ
+      </h1>
+      <h2 class="subhero">
+        Перевозка посылок, корреспонденции и животных по железной дороге
+      </h2>
+    </section>
+    <section class="search">
+      <div class="drive-input">
+        <form class="drive-form" name="drive-form" novalidate>
+          <input aria-label="Откуда" id="from" type="text" class="input-text" placeholder="Пункт отправления" name="st-from"/>
+          <div class="drive-icon" ></div>
+          <input aria-label="Куда" id="to" type="text" class="input-text" placeholder="Пункт назначения" name="st-to"/>
+        </form>
+        <span class="validation-error hints" id="drive-error">validation error</span>
+        <button id="driveButton" class="button menu-button" type="button">РАССЧИТАТЬ ПЕРЕВОЗКУ</button>
+      </div>
+      <div class="tracking-input">
+        <form class="tracking-form" name="tracking-form" novalidate>
+          <input aria-label="Трек-номер" id="track-number" type="number" class="input-text" placeholder="123456789123" name="track-number" min="0" max="999999999999"/>
+          <!-- minlength="9" -->
+        </form>
+        <span class="validation-error hints" id="track-number-error" style="margin-bottom: 10px;"></span>
+        <button id="trackingButton" class="button menu-button" type="button" disabled>ОТСЛЕДИТЬ ПОСЫЛКУ</button>
+      </div>
+    </section>
+    <section class="services section" id="services">
+      <h2 class="section-title title">Наши услуги</h2>
+      <div class="services-cards">
+        <a class="card" href="./pages/article/article-package.html">
+          <div class="card-title_wrapper">
+            <p class="card-title title-text-bold">Перевозка посылок и корреспонденции</p>
+            <img src="./icons/dark-green/arrow.svg" class="card-icon">
+          </div>
+          <div class="options-list">
+            <p class="card-text_row ordinary-text">Правила перевозки</p>
+            <p class="card-text_row ordinary-text">Пункты приёма</p>
+          </div>
+        </a>
+        <a class="card" href="./pages/article/article-animal.html">
+          <div class="card-title_wrapper">
+            <p class="card-title title-text-bold">Перевозка животных</p>
+            <img src="./icons/dark-green/arrow.svg" class="card-icon">
+          </div>
+          <div class="options-list">
+            <p class="card-text_row ordinary-text">Правила перевозки</p>
+            <p class="card-text_row ordinary-text">Условия перевозки</p>
+            <p class="card-text_row ordinary-text">Пункты приёма</p>
+          </div>
+        </a>
+        <a class="card" href="./pages/article/article-busines.html">
+          <div class="card-title_wrapper">
+            <p class="card-title title-text-bold">Услуги доставки для бизнеса</p>
+            <img src="./icons/dark-green/arrow.svg" class="card-icon">
+          </div>
+          <div class="options-list">
+            <p class="card-text_row ordinary-text">Правила перевозки</p>
+            <p class="card-text_row ordinary-text">Условия перевозки</p>
+            <p class="card-text_row ordinary-text">Получение документов по ЭДО</p>
+          </div>
+        </a>
+        <a class="card" href="./pages/article/article-express.html">
+          <div class="card-title_wrapper">
+            <p class="card-title title-text-bold">Экспресс-доставка</p>
+            <img src="./icons/dark-green/arrow.svg" class="card-icon">
+          </div>
+          <div class="options-list">
+            <p class="card-text_row ordinary-text">Как это работает</p>
+            <p class="card-text_row ordinary-text">Условия перевозки</p>
+          </div>
+        </a>
+        <a class="card" href="./pages/article/article-delivery.html">
+          <div class="card-title_wrapper">
+            <p class="card-title title-text-bold">От двери до двери</p>
+            <img src="./icons/dark-green/arrow.svg" class="card-icon">
+          </div>
+          <div class="options-list">
+            <p class="card-text_row ordinary-text">Как это работает</p>
+            <p class="card-text_row ordinary-text">Условия перевозки</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class="about section" id="about">
+      <h2 class="section-title title">О компании</h2>
+      <div class="about-section-wrapper">
+        <div class="about-text-wrapper">
+          <p class="ordinary-text">
+            Koulutta — компания с более чем 10-летним опытом в железнодорожных перевозках. Мы специализируемся на доставке посылок, документов, корреспонденции и даже животных по всей России. Наш профессионализм гарантирует безопасность, скорость и надежность каждой доставки.
+          </p>
+          <p class="ordinary-text">
+            Для многих клиентов важна не только своевременность, но и сохранность груза. Мы уделяем особое внимание каждому отправлению, чтобы обеспечить безопасность и целостность ваших посылок.
+          </p>
+          <p class="ordinary-text">
+            Koulutta — это выбор тех, кто ценит качество, надежность и индивидуальный подход. Мы работаем для вашего удобства и спокойствия, чтобы вы могли быть уверены в сохранности и своевременной доставке ваших грузов.
+          </p>
+        </div>
+        <img src="./images/dark-green/team-green.png" class="about-image">
+      </div>
+      
+      <div class="advantages">
+        <div class="advantage-card">
+          <p class="advantage-title title-text-bold">Быстрая и безопасная доставка</p>
+          <p class="ordinary-text">
+            Используем современные логистические решения и проверенные железнодорожные маршруты.
+          </p>
+        </div>
+        <div class="advantage-card">
+          <p class="advantage-title title-text-bold">Надежность и ответственность</p>
+          <p class="ordinary-text">
+            Гарантируем сохранность и целостность каждого отправления.
+          </p>
+        </div>
+        <div class="advantage-card">
+          <p class="advantage-title title-text-bold">Гибкие условия сотрудничества</p>
+          <p class="ordinary-text">
+            Индивидуальный подход к каждому клиенту, будь то частное лицо или крупная компания.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="contacts section" id="contacts">
+      <h2 class="section-title title">Контакты</h2>
+      <div class="contacts-content">
+        <div class="contacts-text">
+          <p class="ordinary-text">
+            Если у вас есть вопросы о наших услугах по железнодорожным перевозкам посылок или вы хотите оформить заказ,
+             свяжитесь с нами любым удобным способом. Мы всегда рады помочь!
+          </p>
+          <div class="ordinary-text contacts-list">
+            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Email: info@kouluttaa.ru</p>
+            <p>Адрес офиса: [город, улица, дом]</p>
+            <div class="work">
+              <p>График работы:</p>
+              <p>Пн–Пт: 9:00–18:00</p>
+              <p>Сб–Вс: выходной</p>
+            </div>
+          </div>
+        </div>
+        <div class="map">
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0617247651c0935c52a823295f7cc4e47033cbf27ebcebfb563f253b2ca5a8ad&amp;width=330&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+      </div>
+    </section>
+   </main>
+
+   <footer class="footer">
+    <div class="media">
+      <a aria-label="VK" class="media-icon_wrapper" href="#">
+        <img src="../../icons/dark-green/vk.svg" class="media-icon" id="vk">
+      </a>
+      <a aria-label="YouTube" class="media-icon_wrapper" href="#">
+        <img src="../../icons/dark-green/youtube.svg" class="media-icon" id="youtube" >
+      </a>
+      <a aria-label="Telegram" class="media-icon_wrapper" href="#">
+        <img src="../../icons/dark-green/telegram.svg" class="media-icon" id="telegram" >
+      </a>
+    </div>
+    <p class="sign-logo">
+     © KOULUTTAA, 2025
+    </p>
+   </footer>
+
+  <script src="./scripts/main-page/main-page.js"></script>
+  <script src="./scripts/main-page/acces-panel-main.js"></script>
+  
+</body>
+</html>
